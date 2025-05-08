@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="./assets/icons/favicon.ico" type="image/x-icon">
+    <script src="script.js"></script>
+    <title>Bestell App</title>
+</head>
+<body>
+
+    <header>
+        <a href="#"><div class="header-logo">
+            <img src="./assets/img/bestell-app-logo.svg" alt="Logo">
+        </div></a>
+    </header>
+
+    <main>
+        
+        <div class="restaurant-wrapper">
+            <div class="restaurant-image">
+                <img src="./assets/img/club-sandwich_1920.jpg" alt="">
+            </div>
+            <div class="restaurant-info">
+                <h1>Die Snackerei</h1>
+                <p class="restaurant-rating">Bewertung (4,2 von 5 Sternen)</p>
+            </div>
+            <div class="restaurant-navbar">
+                <img src="./assets/icons/arrow.png" alt="">
+                <a href="#bookmark-sandwiches" class="restaurant-navbar-bookmark">Sandwiches</a>
+                <a href="#bookmark-sweets" class="restaurant-navbar-bookmark">Süsses</a>
+                <a href="#bookmark-coffee" class="restaurant-navbar-bookmark">Kaffee & Latte</a>
+                <a href="#bookmark-shakes" class="restaurant-navbar-bookmark">Shakes & Smoothies</a>
+            </div>
+
+            <div class="menu-wrapper">
+                <div class="menu-wrapper-sandwiches" id="bookmark-sandwiches">
+                    <img src="./assets/img/avocado-sandwich.jpg" alt="Avocado Sandwich">
+                    <h3>Sandwiches</h3>
+                    <div id="content-sandwiches"></div>
+                </div>
+
+                <div class="menu-wrapper-sweets" id="bookmark-sweets">
+                    <img src="./assets/img/bananenbrot_mit_schokolade.jpg" alt="Bananenbrot mit Schokolade">
+                    <h3>Süsses</h3>
+                    <div id="content-sweets"></div>
+                </div>
+
+                <div class="menu-wrapper-coffee" id="bookmark-coffee">
+                    <img src="./assets/img/IcedBlueberryLatte_3.jpg" alt="Iced Blueberry Latte">
+                    <h3>Kaffee & Latte</h3>
+                    <div id="content-coffee"></div>
+                </div>
+
+                <div class="menu-wrapper-shakes" id="bookmark-shakes">
+                    <img src="./assets/img/banana-matcha-smoothie.jpg" alt="Bananen Matcha Smoothie">
+                    <h3>Shakes & Smoothies</h3>
+                    <div id="content-shakes"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="basket-wrapper"></div>
+
+    </main>
+    
+    <footer></footer>
+
+</body>
+</html>
