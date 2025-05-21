@@ -48,6 +48,8 @@ header {
 
 main {
     flex: 1; 
+    display: flex;
+    align-items: start;
 }
 
 /* Hauptinhalt */
@@ -199,11 +201,16 @@ h3 {
     top: 0;
     right: 0;
     width: 300px;
-    background: #fff;
+    background-color: #fff;
     height: 100vh;
-    border-left: 1px solid #ccc;
+    box-shadow: -6px 0px 10px -4px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
+}
+
+.basket-header {
+    text-align: center;
+    border-bottom: 1px solid #ccc;
 }
 
 /* Footer */
@@ -232,7 +239,7 @@ footer {
     }
 }
 
-@media (max-width: 425px) {
+@media (max-width: 480px) {
     header {
         display: flex;
         justify-content: center;
@@ -253,5 +260,8 @@ footer {
     }
     h2 {
         text-align: center;
+    }
+    .menu-wrapper {
+        padding: 20px 10px;
     }
 }
