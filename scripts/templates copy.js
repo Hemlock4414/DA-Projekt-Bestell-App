@@ -70,7 +70,7 @@ function getEmptyBasketTemplate() {
 function getOverlayMobile(subtotal, deliveryCost, total) {
     return `
         <div class="mobile-basket-header" onclick="closeMobilebasket()">
-            <h2>Warenkorb<br>schliessen</h2>
+            <h2>Warenkorb</h2>
         </div>
         <div class="mobile-basket-content">
             <div class="mobile-basket-items" id="mobile-basket-items">
@@ -104,3 +104,61 @@ function getOrderConfirmationMessage() {
         </div>
     `;
 }
+
+
+// // Template für Sandwich-Einträge
+// function getSandwichTemplate(dataArray[i]) {
+//     return `
+//         <div class="menu-item">
+//             <div class="menu-item-left">
+//                 <h2 class="menu-item-title">${dataArray[i].category}<h2>
+//                 <h3 class="menu-item-name">${dataArray[i].name}</h3>
+//                 <p class="menu-item-description">${dataArray[i].description}</p>
+//                 <p class="menu-item-price">${formatPrice(dataArray[i].price)}</p>
+//             </div>
+//             <div class="menu-item-right"></div>
+//         </div>
+//     `;
+// }
+
+// // Template für Süßspeisen-Einträge
+// function getSweetsTemplate(dataArray[i]) {
+//     return `
+//         <div class="menu-item">
+//             <div class="menu-item-left">
+//                 <h3 class="menu-item-name">${dataArray[i].name}</h3>            
+//                 <p class="menu-item-description">${dataArray[i].description}</p>
+//                 <p class="menu-item-price">${formatPrice(dataArray[i].price)}</p>
+//             </div>
+//             <div class="menu-item-right"></div>
+//         </div>
+//     `;
+// }
+
+// // Template für Kaffee-Einträge
+// function getCoffeeTemplate(dataArray[i]) {
+//     return `
+//         <div class="menu-item">
+//             <div class="menu-item-left">
+//                 <h3 class="menu-item-name">${dataArray[i].name}</h3>
+//                 <p class="menu-item-description">${dataArray[i].description}</p>
+//                 <p class="menu-item-price">${formatPrice(dataArray[i].price)}</p>
+//             </div>
+//             <div class="menu-item-right"></div>
+//         </div>
+//     `;
+// }
+
+// // Template für Shakes-Einträge
+// function getShakesTemplate(dataArray[i]) {
+//     return `
+//         <div class="menu-item">
+//             <div class="menu-item-left">
+//                 <h3 class="menu-item-name">${dataArray[i].name}</h3>
+//                 <p class="menu-item-description">${dataArray[i].description}</p>
+//                 <p class="menu-item-price">${formatPrice(dataArray[i].price)}</p>
+//             </div>
+//             <div class="menu-item-right"></div>
+//         </div>
+//     `;
+// }

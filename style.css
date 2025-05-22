@@ -440,7 +440,7 @@ h3 {
 .mobile-basket-content {
     display: flex;
     flex-direction: column;
-    height: calc(100vh - 105px);
+    height: calc(100vh - 140px);
 }
 
 #mobile-basket-items {
@@ -492,10 +492,10 @@ footer {
 
 @media (min-width: 2160px) {
     .restaurant-image img {
-        height: 700px;
+        height: 600px;
     }
     .menu-wrapper img {
-        height: 700px;
+        height: 600px;
     }
 }
 
