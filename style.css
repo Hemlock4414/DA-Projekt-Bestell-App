@@ -14,6 +14,10 @@ body {
     flex-direction: column;
 }
 
+body.no-scroll {
+    overflow: hidden;
+}
+
 /* Scrollbar */
 
 ::-webkit-scrollbar {
@@ -61,9 +65,10 @@ main {
 .restaurant-image {
     display: flex;
     align-items: center;
+    position: relative;
 }
 
-.restaurant-image img {
+.restaurant-banner {
     Object-fit: cover;
     Object-position: 50% 70%;
     width: 100%;
@@ -366,7 +371,7 @@ h3 {
     border: none;
     border-radius: 6px;
     padding: 15px 20px;
-    font-size: 16px;
+    font-size: 32px;
     font-weight: 600;
     cursor: pointer;
     z-index: 1000;
@@ -377,25 +382,6 @@ h3 {
 
 .mobile-basket-button:hover {
     background-color: #e6700a;
-}
-
-.mobile-basket-button .basket-info {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.mobile-basket-button .basket-count {
-    background-color: white;
-    color: #FF8000;
-    border-radius: 50%;
-    width: 24px;
-    height: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-    font-weight: 700;
 }
 
 /* Mobile Warenkorb Overlay */
@@ -421,25 +407,30 @@ h3 {
     top: 0;
     background-color: #FF8000;
     color: white;
-    padding: 15px 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     z-index: 2001;
+    cursor: pointer;
+    margin: 10px;
+    border-radius: 6px;
+}
+
+.mobile-basket-header:hover {
+    background-color: #e6700a;
 }
 
 .mobile-basket-header h2 {
-    font-size: 20px;
+    font-size: 32px;
 }
 
 .mobile-basket-content {
     display: flex;
     flex-direction: column;
-    height: calc(100vh - 70px);
+    height: calc(100vh - 105px);
 }
 
-.mobile-basket-items {
-    flex: 1;
+#mobile-basket-items {
     overflow-y: auto;
     padding: 15px;
 }

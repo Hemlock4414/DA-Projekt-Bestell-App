@@ -67,6 +67,36 @@ function getEmptyBasketTemplate() {
     `;
 }
 
+function getOverlayMobile(subtotal, deliveryCost, total) {
+    return `
+        <div class="mobile-basket-header" onclick="closeMobilebasket()">
+            <h2>Warenkorb</h2>
+        </div>
+        <div class="mobile-basket-content">
+            <div class="mobile-basket-items" id="mobile-basket-items">
+                ${renderMobilebasketItems()}
+            </div>
+            <div class="mobile-basket-summary">
+                <div class="basket-line">
+                    <span>Zwischensumme</span>
+                    <span>${formatPrice(subtotal)}</span>
+                </div>
+                <div class="basket-line">
+                    <span>Lieferkosten</span>
+                    <span>${formatPrice(deliveryCost)}</span>
+                </div>
+                <div class="basket-line basket-total">
+                    <strong>Gesamt</strong>
+                    <strong>${formatPrice(total)}</strong>
+                </div>
+                <button class="order-button" ${basket.length === 0 ? 'disabled' : ''}>
+                    Bestellen (${formatPrice(total)})
+                </button>
+            </div>
+        </div>
+    `;
+}
+
 
 // // Template für Sandwich-Einträge
 // function getSandwichTemplate(dataArray[i]) {

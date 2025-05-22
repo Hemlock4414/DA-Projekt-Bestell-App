@@ -16,6 +16,7 @@ function init() {
     renderCategory(dishesData.coffee, 'content-coffee');
     renderCategory(dishesData.shakes, 'content-shakes');
     renderBasket();
+    createMobileOverlay();
 }
 
 // Hilfsfunktion zur Formatierung der Preise (z.B. 9.40 -> 9,40 €)
@@ -47,6 +48,7 @@ function addToBasket(category, dishIndex) {
     }
     
     renderBasket();
+    updateMobileOverlay();
 }
 
 // Warenkorb komplett rendern
@@ -84,6 +86,7 @@ function updateBasket() {
 function increaseQuantity(index) {
     basket[index].quantity++;
     renderBasket();
+    updateMobileOverlay();
 }
 
 function decreaseQuantity(index) {
@@ -94,11 +97,13 @@ function decreaseQuantity(index) {
         return;
     }
     renderBasket();
+    updateMobileOverlay();
 }
 
 function removeFromBasket(index) {
     basket.splice(index, 1);
     renderBasket();
+    updateMobileOverlay();
 }
 
 function calculateSubtotal() {
@@ -110,11 +115,66 @@ function calculateSubtotal() {
 }
 
 // Mobile Warenkorb Funktionen
+
+function createMobileOverlay() {
+    // Prüfen ob das Overlay bereits existiert
+    if (document.getElementById('mobile-basket-overlay')) {
+        return;
+    }
+    
+    // Overlay zum body hinzufügen
+    const overlay = document.createElement('div');
+    overlay.id = 'mobile-basket-overlay';
+    overlay.className = 'mobile-basket-overlay';
+    document.body.appendChild(overlay);
+    
+    updateMobileOverlay();
+}
+
+function updateMobileOverlay() {
+    const overlayRef = document.getElementById('mobile-basket-overlay');
+    if (!overlayRef) return;
+    
+    const subtotal = calculateSubtotal();
+    const deliveryCost = 5.00;
+    const total = subtotal + deliveryCost;
+
+    overlayRef.innerHTML = getOverlayMobile(subtotal, deliveryCost, total);
+}
+
 function toggleMobileBasket() {
     const overlay = document.getElementById('mobile-basket-overlay');
-    overlay.classList.toggle('active');
+    if (overlay) {
+        overlay.classList.toggle('active');
+        
+        // Body-Scroll nur steuern wenn sich der Zustand ändert
+        if (overlay.classList.contains('active')) {
+            document.body.classList.add('no-scroll');
+            updateMobileOverlay(); // Nur beim Öffnen aktualisieren
+        } else {
+            document.body.classList.remove('no-scroll');
+        }
+    }
+}
 
-    document.body.style.overflow = overlay.classList.contains('active') ? 'hidden' : 'auto';
+function closeMobilebasket() {
+    const overlay = document.getElementById('mobile-basket-overlay');
+    if (overlay) {
+        overlay.classList.remove('active');
+        document.body.classList.remove('no-scroll');
+    }
+}
+
+function renderMobilebasketItems() {
+    if (basket.length === 0) {
+        return getEmptyBasketTemplate();
+    }
+
+    let itemsHTML = "";
+    for (let i = 0; i < basket.length; i++) {
+        itemsHTML += getBasketItemTemplate(basket[i], i);
+    }
+    return itemsHTML;
 }
 
 
