@@ -109,6 +109,15 @@ function calculateSubtotal() {
     return subtotal;
 }
 
+// Mobile Warenkorb Funktionen
+function toggleMobileBasket() {
+    const overlay = document.getElementById('mobile-basket-overlay');
+    overlay.classList.toggle('active');
+
+    document.body.style.overflow = overlay.classList.contains('active') ? 'hidden' : 'auto';
+}
+
+
 // Experimentell
 
 // function renderBasket() {
