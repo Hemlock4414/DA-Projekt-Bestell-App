@@ -1,6 +1,6 @@
-function getMenuTemplate(dish) {
+function getMenuTemplate(dish, category, index) {
     return `
-        <div class="menu-item">
+        <div class="menu-item" onclick="addToBasket('${category.replace('content-', '')}', ${index})">
             <div class="menu-item-left">
                 <h3 class="menu-item-name">${dish.name}</h3>
                 <p class="menu-item-description">${dish.description}</p>
@@ -9,6 +9,60 @@ function getMenuTemplate(dish) {
             <div class="menu-item-right">
                 <span class="plus-icon">+</span>
             </div>
+        </div>
+    `;
+}
+
+function getBasketTemplate(subtotal, deliveryCost, total) {
+    return `
+        <div class="basket-content">
+            <h2 class="basket-header">Warenkorb</h2>
+            <div id="basket-items"></div>
+            <div class="basket-summary">
+                <div class="basket-line">
+                    <span>Zwischensumme</span>
+                    <span>${formatPrice(subtotal)}</span>
+                </div>
+                <div class="basket-line">
+                    <span>Lieferkosten</span>
+                    <span>${formatPrice(deliveryCost)}</span>
+                </div>
+                <div class="basket-line basket-total">
+                    <strong>Gesamt</strong>
+                    <strong>${formatPrice(total)}</strong>
+                </div>
+                <button class="order-button" ${basket.length === 0 ? 'disabled' : ''}>
+                    Bestellen (${formatPrice(total)})
+                </button>
+            </div>
+        </div>
+    `;
+}
+
+function getBasketItemTemplate(dish, index) {
+    return `
+        <div class="basket-item">
+            <div class="basket-item-header">
+                <h4 class="basket-item-name">${dish.name}</h4>
+                <img class="basket-item-delete" onclick="removeFromBasket(${index})" src="./assets/icons/trash.png" alt="Löschen">
+            </div>
+            <div class="basket-item-controls">
+                <div class="quantity-controls">
+                    <img class="quantity-btn" onclick="decreaseQuantity(${index})" src="./assets/icons/minus.png" alt="Weniger">
+                    <span class="quantity">${dish.quantity}</span>
+                    <img class="quantity-btn" onclick="increaseQuantity(${index})" src="./assets/icons/plus.png" alt="Mehr">
+                </div>
+                <span class="basket-item-price">${formatPrice(dish.price * dish.quantity)}</span>
+            </div>
+        </div>
+    `;
+}
+
+function getEmptyBasketTemplate() {
+    return `
+        <div class="basket-empty">
+            <p>Der Warenkorb ist leer.</p>
+            <p>Fügen Sie Gerichte hinzu, um zu bestellen.</p>
         </div>
     `;
 }
