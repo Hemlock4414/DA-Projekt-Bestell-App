@@ -44,7 +44,6 @@ function getBasketItemTemplate(dish, index) {
         <div class="basket-item">
             <div class="basket-item-header">
                 <h4 class="basket-item-name">${dish.name}</h4>
-                <img class="basket-item-delete" onclick="removeFromBasket(${index})" src="./assets/icons/trash.png" alt="Löschen">
             </div>
             <div class="basket-item-controls">
                 <div class="quantity-controls">
@@ -53,6 +52,7 @@ function getBasketItemTemplate(dish, index) {
                     <img class="quantity-btn" onclick="increaseQuantity(${index})" src="./assets/icons/plus.png" alt="Mehr">
                 </div>
                 <span class="basket-item-price">${formatPrice(dish.price * dish.quantity)}</span>
+                <img class="basket-item-delete" onclick="removeFromBasket(${index})" src="./assets/icons/trash.png" alt="Löschen">
             </div>
         </div>
     `;
@@ -62,7 +62,7 @@ function getEmptyBasketTemplate() {
     return `
         <div class="basket-empty">
             <p>Der Warenkorb ist leer.</p>
-            <p>Fügen Sie Gerichte hinzu, um zu bestellen.</p>
+            <p>Fügen Sie Snacks hinzu, um zu bestellen.</p>
         </div>
     `;
 }
