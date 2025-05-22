@@ -177,6 +177,35 @@ function renderMobilebasketItems() {
     return itemsHTML;
 }
 
+// Bestellung aufgeben
+function placeOrder() {
+    if (basket.length === 0) return;
+
+    // Warenkorb leeren
+    basket = [];
+    
+    const confirmationHTML = getOrderConfirmationMessage();
+
+    // Container für mobile und desktop
+    const basketWrapper = document.getElementById('basket-wrapper');
+    const mobileOverlay = document.getElementById('mobile-basket-overlay');
+
+    // Einfügen der Bestätigung
+    if (basketWrapper) {
+        basketWrapper.innerHTML = confirmationHTML;
+    }
+    if (mobileOverlay && mobileOverlay.classList.contains('active')) {
+        mobileOverlay.innerHTML = confirmationHTML;
+    }
+
+    // Nach 3 Sekunden die Meldung wieder ausblenden und normalen leeren Warenkorb zeigen
+    setTimeout(() => {
+        renderBasket();
+        updateMobileOverlay();
+    }, 3000);
+}
+
+
 
 // Experimentell
 

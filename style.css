@@ -452,12 +452,31 @@ h3 {
     background-color: #fafafa;
 }
 
+/* Order Confirmation */
+
+.order-confirmation {
+    margin: 30px auto;
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #f0f8f0;
+    border: 2px solid #4CAF50;
+    border-radius: 8px;
+    width: 60%;
+}
+
+.order-confirmation p {
+    font-size: 20px;
+}
+
 /* Footer */
   
 footer {
     margin-top: auto;
     height: 60px;
     background-color: #FF8000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 @media (min-width: 1440px) {

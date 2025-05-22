@@ -31,7 +31,7 @@ function getBasketTemplate(subtotal, deliveryCost, total) {
                     <strong>Gesamt</strong>
                     <strong>${formatPrice(total)}</strong>
                 </div>
-                <button class="order-button" ${basket.length === 0 ? 'disabled' : ''}>
+                <button class="order-button" onclick="placeOrder()" ${basket.length === 0 ? 'disabled' : ''}>
                     Bestellen (${formatPrice(total)})
                 </button>
             </div>
@@ -89,10 +89,18 @@ function getOverlayMobile(subtotal, deliveryCost, total) {
                     <strong>Gesamt</strong>
                     <strong>${formatPrice(total)}</strong>
                 </div>
-                <button class="order-button" ${basket.length === 0 ? 'disabled' : ''}>
+                <button class="order-button" onclick="placeOrder()" ${basket.length === 0 ? 'disabled' : ''}>
                     Bestellen (${formatPrice(total)})
                 </button>
             </div>
+        </div>
+    `;
+}
+
+function getOrderConfirmationMessage() {
+    return `
+        <div class="order-confirmation">
+            <p>Testbestellung erfolgreich!</p>
         </div>
     `;
 }
