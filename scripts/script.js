@@ -65,7 +65,6 @@ function updateBasket() {
         basketItemsRef.innerHTML = getEmptyBasketTemplate();
         return;
     }
-
     for (let i = 0; i < basket.length; i++) {
         basketItemsRef.innerHTML += getBasketItemTemplate(basket[i], i);
     }
